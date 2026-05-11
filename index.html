@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>US Brand Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">US Brand Tracker</p>
+          <h1>Awareness and equity command view</h1>
+          <p class="lede">Quarterly tracker for the core blocker: Shapermint is not yet growing unaided awareness or owning brand equities strongly enough versus Spanx and Skims.</p>
+        </div>
+        <div class="topbar-meta">
+          <span class="badge badge-verified">Verified source data</span>
+          <span class="badge badge-gap">Q4 unaided gap flagged</span>
+        </div>
+      </header>
+
+      <nav class="tabs" aria-label="Dashboard sections">
+        <button class="tab is-active" data-tab="awareness">Awareness</button>
+        <button class="tab" data-tab="equity">Equity Ownership</button>
+        <button class="tab" data-tab="channels">Channels</button>
+        <button class="tab" data-tab="notes">Data Notes</button>
+      </nav>
+
+      <main>
+        <section class="tab-panel is-active" id="awareness">
+          <div class="summary-grid" id="summaryCards"></div>
+
+          <section class="panel chart-panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-kicker">Quarterly awareness</p>
+                <h2 id="awarenessTitle">Unaided awareness</h2>
+              </div>
+              <div class="segmented" role="group" aria-label="Awareness metric">
+                <button class="segment is-active" data-metric="unaided">Unaided</button>
+                <button class="segment" data-metric="aided">Aided</button>
+              </div>
+            </div>
+            <div class="chart-wrap">
+              <svg id="awarenessChart" role="img" aria-label="Brand awareness line chart"></svg>
+              <div class="tooltip" id="chartTooltip" role="status"></div>
+            </div>
+            <div class="legend" id="brandLegend"></div>
+          </section>
+
+          <section class="insight-band">
+            <div>
+              <p class="section-kicker">Main blocker</p>
+              <h2>Shapermint is visible, but not memorable enough.</h2>
+            </div>
+            <div class="gap-callout">
+              <span class="gap-number" id="unaidedGap">27pp</span>
+              <span>Q1 2026 unaided gap to the dominant Spanx/Skims competitor.</span>
+            </div>
+            <p>Q1 2026 shows Shapermint back at 10% unaided awareness. That is progress from Q3, but it still leaves the brand far below Spanx at 37% and Skims at 36%. Aided awareness is also the lowest in the tracked competitor set.</p>
+          </section>
+
+          <div class="action-grid" id="actionCards"></div>
+        </section>
+
+        <section class="tab-panel" id="equity">
+          <section class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-kicker">Equity ownership</p>
+                <h2 id="equityTitle">New positioning statements</h2>
+              </div>
+              <div class="segmented compact" role="group" aria-label="Equity view">
+                <button class="segment is-active" data-equity="associations">Q4/Q1 Statements</button>
+                <button class="segment" data-equity="attributes">Q4/Q1 Attributes</button>
+                <button class="segment" data-equity="topTwoQ3">Q3 Top 2</button>
+                <button class="segment" data-equity="legacyQ2">Q2 Legacy</button>
+              </div>
+            </div>
+            <div class="equity-summary" id="equitySummary"></div>
+            <div class="table-shell">
+              <table class="heatmap" id="equityTable"></table>
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-kicker">Shapermint brand health</p>
+                <h2>Softening differentiation signals</h2>
+              </div>
+            </div>
+            <div class="signal-grid" id="signalGrid"></div>
+          </section>
+        </section>
+
+        <section class="tab-panel" id="channels">
+          <section class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-kicker">Discovery and memory channels</p>
+                <h2>Where Shapermint is being noticed</h2>
+              </div>
+              <div class="segmented" role="group" aria-label="Channel metric">
+                <button class="segment is-active" data-channel="initialAwareness">Initial awareness</button>
+                <button class="segment" data-channel="lastSeen">Last seen</button>
+              </div>
+            </div>
+            <div class="channel-list" id="channelList"></div>
+          </section>
+
+          <section class="insight-band quiet">
+            <div>
+              <p class="section-kicker">Channel read</p>
+              <h2>Search and Facebook are steadier than TikTok.</h2>
+            </div>
+            <p>Online Search and Facebook Ad remain the most consistent initial-awareness channels. TikTok declined from 16.6% in Q1/Q2 2025 to 12.7% in Q1 2026, while Facebook recovered to 17.2% and Instagram rose to 14.5%.</p>
+          </section>
+        </section>
+
+        <section class="tab-panel" id="notes">
+          <section class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-kicker">Source discipline</p>
+                <h2>What is verified, partial, or missing</h2>
+              </div>
+            </div>
+            <ul class="notes-list" id="dataNotes"></ul>
+          </section>
+          <section class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-kicker">Update workflow</p>
+                <h2>Quarterly maintenance</h2>
+              </div>
+            </div>
+            <div class="workflow-grid">
+              <div><span>1</span><p>Add the new raw XLS/PPTX values to <strong>data.js</strong>.</p></div>
+              <div><span>2</span><p>Mark each metric with source and confidence before charting.</p></div>
+              <div><span>3</span><p>Leave unreadable values blank until a table or exact source confirms them.</p></div>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
