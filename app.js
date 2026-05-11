@@ -12,6 +12,8 @@ const fmt = (value, digits = 0) => {
   return `${Number(value).toFixed(digits)}%`;
 };
 
+const quarterLabel = (quarter) => quarter.replace(/20(\d{2})$/, "'$1");
+
 const byBrand = Object.fromEntries(data.brands.map((brand) => [brand.key, brand]));
 
 function latestWithValue(series, brand) {
@@ -89,10 +91,11 @@ function renderAwarenessChart() {
   const svg = document.getElementById("awarenessChart");
   const title = state.metric === "unaided" ? "Unaided awareness" : "Aided awareness";
   document.getElementById("awarenessTitle").textContent = title;
+  document.getElementById("awarenessSourceNote").textContent = data.awarenessNotes[state.metric];
 
   const width = svg.clientWidth || 1180;
-  const height = 400;
-  const margin = { top: 28, right: 28, bottom: 54, left: 52 };
+  const height = 430;
+  const margin = { top: 30, right: 28, bottom: 78, left: 52 };
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
   const allValues = series.flatMap((row) => Object.values(row.values).filter((value) => value !== null));
@@ -113,9 +116,13 @@ function renderAwarenessChart() {
     .join("");
 
   const xLabels = series
-    .map((row, index) => `
-      <text class="axis-label" x="${xFor(index)}" y="${height - 18}" text-anchor="middle">${row.quarter.replace(" ", " ")}</text>
-    `)
+    .map((row, index) => {
+      const showLabel = series.length <= 12 || index % 2 === 0 || index === series.length - 1 || row.confidence === "missing-exact";
+      return `
+        <line class="x-tick" x1="${xFor(index)}" y1="${height - margin.bottom}" x2="${xFor(index)}" y2="${height - margin.bottom + 6}"></line>
+        ${showLabel ? `<text class="axis-label axis-label-x" x="${xFor(index)}" y="${height - 30}" text-anchor="end" transform="rotate(-42 ${xFor(index)} ${height - 30})">${quarterLabel(row.quarter)}</text>` : ""}
+      `;
+    })
     .join("");
 
   const brandLines = data.brands
@@ -288,20 +295,37 @@ function renderSignals() {
 function renderChannels() {
   const channelData = data.channels[state.channel];
   const max = Math.max(...channelData.rows.flatMap((row) => row.values.filter((value) => value !== null)));
-  document.getElementById("channelList").innerHTML = channelData.rows
+  const quarterLabels = channelData.quarters.map(quarterLabel);
+  document.getElementById("channelSourceNote").textContent = `${channelData.source}. Bars run left to right: ${quarterLabels.join(", ")}.`;
+  document.getElementById("channelList").innerHTML = `
+    <div class="channel-axis" aria-hidden="true">
+      <span>Channel</span>
+      <div class="channel-quarter-labels">
+        ${quarterLabels.map((quarter) => `<span>${quarter}</span>`).join("")}
+      </div>
+      <span>Latest</span>
+    </div>
+    ${channelData.rows
     .map((row) => {
       const latest = [...row.values].reverse().find((value) => value !== null);
       return `
         <div class="channel-row">
           <div class="channel-name">${row.channel}</div>
           <div class="spark" aria-label="${row.channel} trend">
-            ${row.values.map((value) => `<span class="spark-bar" title="${value === null ? "Not asked" : `${value}%`}" style="height:${value === null ? 4 : Math.max(4, (value / max) * 42)}px; opacity:${value === null ? 0.25 : 1}"></span>`).join("")}
+            ${row.values.map((value, index) => `
+              <span class="spark-slot">
+                <span class="spark-value">${value === null ? "n/a" : fmt(value, 1)}</span>
+                <span class="spark-bar" title="${channelData.quarters[index]}: ${value === null ? "Not asked" : fmt(value, 1)}" style="height:${value === null ? 4 : Math.max(4, (value / max) * 44)}px; opacity:${value === null ? 0.25 : 1}"></span>
+                <span class="spark-quarter">${quarterLabel(channelData.quarters[index])}</span>
+              </span>
+            `).join("")}
           </div>
           <div class="channel-latest">${fmt(latest, 1)}</div>
         </div>
       `;
     })
-    .join("");
+    .join("")}
+  `;
 }
 
 function renderNotes() {

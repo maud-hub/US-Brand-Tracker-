@@ -11,6 +11,102 @@ window.BRAND_TRACKER_DATA = {
   awareness: {
     unaided: [
       {
+        quarter: "Q1 2021",
+        source: "Q3 2024 PPTX slide 12 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 4, Spanx: 35, Skims: 7, Maidenform: 11, Honeylove: null }
+      },
+      {
+        quarter: "Q3 2021",
+        source: "Q3 2024 PPTX slide 12 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 3, Spanx: 34, Skims: 9, Maidenform: 11, Honeylove: null }
+      },
+      {
+        quarter: "Q4 2021",
+        source: "Q3 2024 PPTX slide 12 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 3, Spanx: 29, Skims: 9, Maidenform: 9, Honeylove: null }
+      },
+      {
+        quarter: "Q1 2022",
+        source: "Q3 2024 PPTX slide 12 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 3, Spanx: 27, Skims: 11, Maidenform: 10, Honeylove: null }
+      },
+      {
+        quarter: "Q2 2022",
+        source: "Q3 2024 PPTX slide 12 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 4, Spanx: 24, Skims: 17, Maidenform: 8, Honeylove: null }
+      },
+      {
+        quarter: "Q3 2022",
+        source: "Q3 2024 PPTX slide 12 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 3, Spanx: 28, Skims: 17, Maidenform: 9, Honeylove: null }
+      },
+      {
+        quarter: "Q4 2022",
+        source: "Q3 2024 PPTX slide 12 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 6, Spanx: 26, Skims: 19, Maidenform: 9, Honeylove: null }
+      },
+      {
+        quarter: "Q1 2023",
+        source: "Q3 2024 PPTX slide 12 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 7, Spanx: 28, Skims: 20, Maidenform: 10, Honeylove: 3 }
+      },
+      {
+        quarter: "Q2 2023",
+        source: "Q3 2024 PPTX slide 12 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 7, Spanx: 29, Skims: 27, Maidenform: 9, Honeylove: 3 }
+      },
+      {
+        quarter: "Q3 2023",
+        source: "Q3 2024 PPTX slide 12 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 7, Spanx: 32, Skims: 24, Maidenform: 10, Honeylove: 4 }
+      },
+      {
+        quarter: "Q4 2023",
+        source: "Q3 2024 PPTX slide 12 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 6, Spanx: 31, Skims: 25, Maidenform: 9, Honeylove: 2 }
+      },
+      {
+        quarter: "Q1 2024",
+        source: "Q3 2024 PPTX slide 12 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 6, Spanx: 35, Skims: 29, Maidenform: 10, Honeylove: 3 }
+      },
+      {
+        quarter: "Q2 2024",
+        source: "Q3 2024 PPTX slide 12 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 9, Spanx: 35, Skims: 28, Maidenform: 12, Honeylove: 4 }
+      },
+      {
+        quarter: "Q3 2024",
+        source: "Q3 2024 PPTX slide 12 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 8, Spanx: 39, Skims: 37, Maidenform: 10, Honeylove: 5 }
+      },
+      {
+        quarter: "Q4 2024",
+        source: "Q4 2024 PPTX slide 10 text and labeled chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 9, Spanx: 36, Skims: 41, Maidenform: 10, Honeylove: 6 }
+      },
+      {
+        quarter: "Q1 2025",
+        source: "Q2 2025 PPTX slide 8 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 10, Spanx: 39, Skims: 32, Maidenform: 12, Honeylove: 7 }
+      },
+      {
         quarter: "Q2 2025",
         source: "Q2 2025 PPTX slide 8 labels and narrative text",
         confidence: "deck-verified",
@@ -37,6 +133,54 @@ window.BRAND_TRACKER_DATA = {
       }
     ],
     aided: [
+      {
+        quarter: "Q1 2023",
+        source: "Q2 2025 PPTX slide 9 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 53, Spanx: 92, Skims: 76, Maidenform: 79, Honeylove: 52 }
+      },
+      {
+        quarter: "Q2 2023",
+        source: "Q2 2025 PPTX slide 9 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 51, Spanx: 92, Skims: 77, Maidenform: 74, Honeylove: 47 }
+      },
+      {
+        quarter: "Q3 2023",
+        source: "Q2 2025 PPTX slide 9 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 54, Spanx: 92, Skims: 78, Maidenform: 77, Honeylove: 47 }
+      },
+      {
+        quarter: "Q4 2023",
+        source: "Q2 2025 PPTX slide 9 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 51, Spanx: 92, Skims: 79, Maidenform: 74, Honeylove: 45 }
+      },
+      {
+        quarter: "Q1 2024",
+        source: "Q2 2025 PPTX slide 9 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 52, Spanx: 93, Skims: 79, Maidenform: 80, Honeylove: 47 }
+      },
+      {
+        quarter: "Q2 2024",
+        source: "Q2 2025 PPTX slide 9 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 56, Spanx: 95, Skims: 78, Maidenform: 83, Honeylove: 51 }
+      },
+      {
+        quarter: "Q3 2024",
+        source: "Q2 2025 PPTX slide 9 labeled historic chart",
+        confidence: "deck-verified",
+        values: { Shapermint: 55, Spanx: 91, Skims: 79, Maidenform: 79, Honeylove: 53 }
+      },
+      {
+        quarter: "Q4 2024",
+        source: "Q2 2025 PPTX slide 9 labeled historic chart and Q4 2024 PPTX text",
+        confidence: "deck-verified",
+        values: { Shapermint: 53, Spanx: 92, Skims: 77, Maidenform: 71, Honeylove: 53 }
+      },
       {
         quarter: "Q1 2025",
         source: "Q1 2025 raw XLS, relationship table",
@@ -68,6 +212,10 @@ window.BRAND_TRACKER_DATA = {
         values: { Shapermint: 53.1, Spanx: 94.2, Skims: 78.0, Maidenform: 79.8, Honeylove: 58.1 }
       }
     ]
+  },
+  awarenessNotes: {
+    unaided: "Unaided awareness now spans the labeled historic tracker series from Q1 2021 to Q1 2026. Honeylove was not present in the earliest 2021/2022 chart points. Q4 2025 remains blank because the supplied Q1 2026 deck only shows an unlabeled plotted point.",
+    aided: "Aided awareness spans the labeled historic tracker series from Q1 2023 to Q1 2026, with 2025/2026 raw export values used where available."
   },
   equity: {
     legacyQ2: {
@@ -250,6 +398,8 @@ window.BRAND_TRACKER_DATA = {
     }
   ],
   dataNotes: [
+    "Historic unaided awareness is sourced from the Q3 2024 PPTX labeled chart for Q1 2021 through Q3 2024, then Q4 2024, Q1/Q2 2025, Q3 2025, and Q1 2026 deck labels/cards.",
+    "Historic aided awareness is sourced from the Q2 2025 PPTX labeled chart for Q1 2023 through Q4 2024, then raw XLS or overlay tables for 2025 and Q1 2026.",
     "Q2 2025 deck supplied exact labels for unaided awareness and exact raw XLS tables for aided awareness, equity, source, and intent.",
     "Q3 2025 unaided, aided, and equity values use the overlay/pasted tables in the Q3 PPTX, because some values differ from the raw export tables.",
     "Q4 2025 unaided awareness is not exposed as a table or label in the supplied files. It is intentionally left blank rather than inferred from an unlabeled chart point.",
