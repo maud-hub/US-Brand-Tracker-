@@ -590,7 +590,7 @@ window.BRAND_TRACKER_DATA = {
     {
       title: "Make body adaptation the Q3 campaign spine",
       urgency: "Campaign",
-      proof: "Q2 respondents want brands that adapt to their body instead of asking them to adapt, 55.6%, understand their life stage, 53.6%, and make comfort feel powerful, 47.5%. No brand clearly owns moving beyond old shapewear rules.",
+      proof: "Across all 1,647 Q2 respondents, 51.2% want brands that adapt to their body, 50.8% want brands that understand their life stage, and 42.2% want comfort to feel powerful. No brand clearly owns moving beyond old shapewear rules: 36.8% say no brand is doing it, while Shapermint is only 6.9%.",
       move: "Build one repeated idea around shapewear that adapts as bodies and lives change, then use the same claim, visual cue, and proof across paid social, Amazon, PDP, CRM, and retail."
     },
     {
