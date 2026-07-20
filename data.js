@@ -1,12 +1,21 @@
 window.BRAND_TRACKER_DATA = {
-  generatedOn: "2026-05-11",
-  quarters: ["Q1 2025", "Q2 2025", "Q3 2025", "Q4 2025", "Q1 2026"],
+  generatedOn: "2026-07-20",
+  quarters: ["Q1 2025", "Q2 2025", "Q3 2025", "Q4 2025", "Q1 2026", "Q2 2026"],
   brands: [
     { key: "Shapermint", label: "Shapermint", color: "#7c3aed" },
     { key: "Spanx", label: "Spanx", color: "#f59e0b" },
     { key: "Skims", label: "Skims", color: "#ec4899" },
     { key: "Maidenform", label: "Maidenform", color: "#3b82f6" },
     { key: "Honeylove", label: "Honeylove", color: "#ef4444" }
+  ],
+  braBrands: [
+    { key: "Truekind", label: "Truekind", color: "#7c3aed" },
+    { key: "VS", label: "VS", color: "#ef4444" },
+    { key: "Playtex", label: "Playtex", color: "#2563eb" },
+    { key: "Bali", label: "Bali", color: "#f59e0b" },
+    { key: "Hanes", label: "Hanes", color: "#14b8a6" },
+    { key: "Warners", label: "Warner's", color: "#ec4899" },
+    { key: "Thirdlove", label: "Thirdlove", color: "#64748b" }
   ],
   awareness: {
     unaided: [
@@ -130,6 +139,13 @@ window.BRAND_TRACKER_DATA = {
         source: "Q1 2026 PPTX slide 3 dashboard cards",
         confidence: "deck-verified",
         values: { Shapermint: 10, Spanx: 37, Skims: 36, Maidenform: 10, Honeylove: 6 }
+      },
+      {
+        quarter: "Q2 2026",
+        source: "User-supplied Q2 2026 Brand Tracker results, 2026-07-20",
+        confidence: "user-supplied",
+        qoq: { Shapermint: 1, Spanx: 1, Skims: -2, Maidenform: 0, Honeylove: 1 },
+        values: { Shapermint: 11, Spanx: 38, Skims: 34, Maidenform: 10, Honeylove: 7 }
       }
     ],
     aided: [
@@ -210,12 +226,58 @@ window.BRAND_TRACKER_DATA = {
         source: "Q1 2026 raw XLS, relationship table",
         confidence: "raw-export",
         values: { Shapermint: 53.1, Spanx: 94.2, Skims: 78.0, Maidenform: 79.8, Honeylove: 58.1 }
+      },
+      {
+        quarter: "Q2 2026",
+        source: "User-supplied Q2 2026 Brand Tracker results, 2026-07-20",
+        confidence: "user-supplied",
+        qoq: { Shapermint: -12, Spanx: -9, Skims: -13, Maidenform: -9, Honeylove: -15 },
+        values: { Shapermint: 41, Spanx: 85, Skims: 66, Maidenform: 71, Honeylove: 43 }
       }
     ]
   },
   awarenessNotes: {
-    unaided: "Unaided awareness now spans the labeled historic tracker series from Q1 2021 to Q1 2026. Honeylove was not present in the earliest 2021/2022 chart points. Q4 2025 remains blank because the supplied Q1 2026 deck only shows an unlabeled plotted point.",
-    aided: "Aided awareness spans the labeled historic tracker series from Q1 2023 to Q1 2026, with 2025/2026 raw export values used where available."
+    unaided: "Unaided awareness spans the labeled historic tracker series from Q1 2021 to Q2 2026. Honeylove was not present in the earliest 2021/2022 chart points. Q4 2025 remains blank because the supplied Q1 2026 deck only shows an unlabeled plotted point.",
+    aided: "Aided awareness spans the labeled historic tracker series from Q1 2023 to Q2 2026. Q2 2026 values and QoQ deltas are user-supplied latest results."
+  },
+  braAwareness: {
+    unaided: [
+      {
+        quarter: "Q1 2026",
+        source: "Derived from user-supplied Q2 2026 values and stated QoQ deltas",
+        confidence: "derived-from-qoq",
+        mentions: { Truekind: 1 },
+        values: { Truekind: 0, VS: 39, Playtex: 23, Bali: 11, Hanes: 14, Warners: 5, Thirdlove: 2 }
+      },
+      {
+        quarter: "Q2 2026",
+        source: "User-supplied Q2 2026 Truekind Brand Tracker results, 2026-07-20",
+        confidence: "user-supplied",
+        qoq: { Truekind: 0, VS: -3, Playtex: 2, Bali: 6, Hanes: 0, Warners: 1, Thirdlove: 0 },
+        qoqMentions: { Truekind: 2 },
+        mentions: { Truekind: 3 },
+        values: { Truekind: 0, VS: 36, Playtex: 25, Bali: 17, Hanes: 14, Warners: 6, Thirdlove: 2 }
+      }
+    ],
+    aided: [
+      {
+        quarter: "Q1 2026",
+        source: "Derived from user-supplied Q2 2026 values and stated QoQ deltas",
+        confidence: "derived-from-qoq",
+        values: { Truekind: 31, VS: 99, Playtex: 90, Bali: 79, Hanes: 97, Warners: 62, Thirdlove: 40 }
+      },
+      {
+        quarter: "Q2 2026",
+        source: "User-supplied Q2 2026 Truekind Brand Tracker results, 2026-07-20",
+        confidence: "user-supplied",
+        qoq: { Truekind: -6, VS: -2, Playtex: -2, Bali: -5, Hanes: -1, Warners: -7, Thirdlove: -9 },
+        values: { Truekind: 25, VS: 97, Playtex: 88, Bali: 74, Hanes: 96, Warners: 55, Thirdlove: 31 }
+      }
+    ]
+  },
+  braAwarenessNotes: {
+    unaided: "Truekind unaided awareness is 0% in Q2 2026, with 3 mentions, up 2 mentions QoQ. Q1 2026 competitor values are derived directly from the supplied Q2 values and stated QoQ changes.",
+    aided: "Truekind aided awareness is 25% in Q2 2026, down 6pp QoQ. Q1 2026 values are derived directly from the supplied Q2 values and stated QoQ changes."
   },
   equity: {
     legacyQ2: {
@@ -381,8 +443,14 @@ window.BRAND_TRACKER_DATA = {
     {
       title: "Stop treating awareness as only reach",
       urgency: "High",
-      proof: "Unaided awareness recovered to 10% in Q1 2026, but the nearest dominant competitor is still 37%.",
+      proof: "Q2 2026 unaided awareness rose to 11%, but the nearest dominant competitor is still Spanx at 38%.",
       move: "Measure spend against memory lift, not just impressions. Use recurring brand cues and a single ownable phrase every quarter."
+    },
+    {
+      title: "Diagnose the aided awareness drop immediately",
+      urgency: "High",
+      proof: "Shapermint aided awareness fell 12pp QoQ to 41% in Q2 2026, while every tracked brand also declined sharply.",
+      move: "Check questionnaire, sample, media weight, and category participation shifts before turning this into a pure brand-performance read."
     },
     {
       title: "Use retail and Amazon as credibility bridges",
@@ -398,8 +466,10 @@ window.BRAND_TRACKER_DATA = {
     }
   ],
   dataNotes: [
-    "Historic unaided awareness is sourced from the Q3 2024 PPTX labeled chart for Q1 2021 through Q3 2024, then Q4 2024, Q1/Q2 2025, Q3 2025, and Q1 2026 deck labels/cards.",
-    "Historic aided awareness is sourced from the Q2 2025 PPTX labeled chart for Q1 2023 through Q4 2024, then raw XLS or overlay tables for 2025 and Q1 2026.",
+    "Q2 2026 Shapermint and Truekind aided/unaided values are user-supplied latest results from 2026-07-20; these are marked as user-supplied in the data model.",
+    "Truekind Q1 2026 comparison values are derived only from the provided Q2 2026 values and stated QoQ deltas. Truekind unaided movement is tracked as mentions because Q2 is still 0%.",
+    "Historic unaided awareness is sourced from the Q3 2024 PPTX labeled chart for Q1 2021 through Q3 2024, then Q4 2024, Q1/Q2 2025, Q3 2025, Q1 2026 deck labels/cards, and the user-supplied Q2 2026 update.",
+    "Historic aided awareness is sourced from the Q2 2025 PPTX labeled chart for Q1 2023 through Q4 2024, then raw XLS or overlay tables for 2025/Q1 2026 and the user-supplied Q2 2026 update.",
     "Q2 2025 deck supplied exact labels for unaided awareness and exact raw XLS tables for aided awareness, equity, source, and intent.",
     "Q3 2025 unaided, aided, and equity values use the overlay/pasted tables in the Q3 PPTX, because some values differ from the raw export tables.",
     "Q4 2025 unaided awareness is not exposed as a table or label in the supplied files. It is intentionally left blank rather than inferred from an unlabeled chart point.",

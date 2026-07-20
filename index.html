@@ -12,10 +12,11 @@
         <div>
           <p class="eyebrow">US Brand Tracker</p>
           <h1>Awareness and equity command view</h1>
-          <p class="lede">Quarterly tracker for the core blocker: Shapermint is not yet growing unaided awareness or owning brand equities strongly enough versus Spanx and Skims.</p>
+          <p class="lede">Quarterly tracker for the core blocker: Shapermint is not yet growing unaided awareness or owning brand equities strongly enough versus Spanx and Skims, with Truekind bra awareness now tracked alongside the shapewear read.</p>
         </div>
         <div class="topbar-meta">
           <span class="badge badge-verified">Verified source data</span>
+          <span class="badge badge-verified">Q2 2026 updated</span>
           <span class="badge">History from Q1 2021</span>
           <span class="badge badge-gap">Q4 2025 unaided exact missing</span>
         </div>
@@ -23,6 +24,7 @@
 
       <nav class="tabs" aria-label="Dashboard sections">
         <button class="tab is-active" data-tab="awareness">Awareness</button>
+        <button class="tab" data-tab="bras">Truekind</button>
         <button class="tab" data-tab="equity">Equity Ownership</button>
         <button class="tab" data-tab="channels">Channels</button>
         <button class="tab" data-tab="notes">Data Notes</button>
@@ -58,12 +60,47 @@
             </div>
             <div class="gap-callout">
               <span class="gap-number" id="unaidedGap">27pp</span>
-              <span>Q1 2026 unaided gap to the dominant Spanx/Skims competitor.</span>
+              <span>Q2 2026 unaided gap to the dominant Spanx/Skims competitor.</span>
             </div>
-            <p>Q1 2026 shows Shapermint back at 10% unaided awareness. That is progress from Q3, but it still leaves the brand far below Spanx at 37% and Skims at 36%. Aided awareness is also the lowest in the tracked competitor set.</p>
+            <p>Q2 2026 moves Shapermint to 11% unaided awareness, up 1pp QoQ, but the brand remains 27pp behind Spanx. The sharper concern is aided awareness: Shapermint fell 12pp QoQ to 41%, now below every tracked shapewear competitor.</p>
           </section>
 
           <div class="action-grid" id="actionCards"></div>
+        </section>
+
+        <section class="tab-panel" id="bras">
+          <div class="summary-grid" id="braSummaryCards"></div>
+
+          <section class="panel chart-panel">
+            <div class="panel-header">
+              <div>
+                <p class="section-kicker">Truekind bra tracker</p>
+                <h2 id="braAwarenessTitle">Truekind unaided awareness</h2>
+                <p class="source-note" id="braAwarenessSourceNote"></p>
+              </div>
+              <div class="segmented" role="group" aria-label="Truekind awareness metric">
+                <button class="segment is-active" data-bra-metric="unaided">Unaided</button>
+                <button class="segment" data-bra-metric="aided">Aided</button>
+              </div>
+            </div>
+            <div class="chart-wrap">
+              <svg id="braAwarenessChart" role="img" aria-label="Truekind bra awareness line chart"></svg>
+              <div class="tooltip" id="braChartTooltip" role="status"></div>
+            </div>
+            <div class="legend" id="braLegend"></div>
+          </section>
+
+          <section class="insight-band">
+            <div>
+              <p class="section-kicker">Bra read</p>
+              <h2>Truekind is still almost invisible unaided.</h2>
+            </div>
+            <div class="gap-callout">
+              <span class="gap-number">0%</span>
+              <span>Q2 2026 unaided awareness, with 3 mentions.</span>
+            </div>
+            <p>Truekind aided awareness is 25%, down 6pp QoQ. The wider bra set is also down on aided awareness, but VS and Hanes remain near-universal while Playtex, Bali, and Warner's hold far more memory than Truekind.</p>
+          </section>
         </section>
 
         <section class="tab-panel" id="equity">

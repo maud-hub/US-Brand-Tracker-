@@ -3,6 +3,7 @@ const data = window.BRAND_TRACKER_DATA;
 const state = {
   tab: "awareness",
   metric: "unaided",
+  braMetric: "unaided",
   equity: "associations",
   channel: "initialAwareness"
 };
@@ -15,6 +16,12 @@ const fmt = (value, digits = 0) => {
 const quarterLabel = (quarter) => quarter.replace(/20(\d{2})$/, "'$1");
 
 const byBrand = Object.fromEntries(data.brands.map((brand) => [brand.key, brand]));
+const byBraBrand = Object.fromEntries(data.braBrands.map((brand) => [brand.key, brand]));
+
+const qoqText = (value) => {
+  if (value === 0) return "flat QoQ";
+  return `${value > 0 ? "+" : ""}${value}pp QoQ`;
+};
 
 function latestWithValue(series, brand) {
   return [...series].reverse().find((row) => row.values[brand] !== null && row.values[brand] !== undefined);
@@ -32,15 +39,14 @@ function renderSummaryCards() {
   const aidedLatest = latestWithValue(data.awareness.aided, "Shapermint");
   const dominant = closestDominant(unaidedLatest);
   const gap = dominant.value - unaidedLatest.values.Shapermint;
-  const q3Unaided = data.awareness.unaided.find((row) => row.quarter === "Q3 2025");
-  const q1Unaided = data.awareness.unaided.find((row) => row.quarter === "Q1 2026");
-  const recovery = q1Unaided.values.Shapermint - q3Unaided.values.Shapermint;
+  const unaidedQoq = unaidedLatest.qoq?.Shapermint;
+  const aidedQoq = aidedLatest.qoq?.Shapermint;
 
   const cards = [
     {
       label: "Latest Shapermint unaided",
       value: fmt(unaidedLatest.values.Shapermint),
-      note: `${unaidedLatest.quarter}, verified from deck card`
+      note: `${unaidedLatest.quarter}, ${qoqText(unaidedQoq)}`
     },
     {
       label: `Gap to ${dominant.brand}`,
@@ -50,12 +56,12 @@ function renderSummaryCards() {
     {
       label: "Latest Shapermint aided",
       value: fmt(aidedLatest.values.Shapermint, 1),
-      note: `${aidedLatest.quarter}, lowest among tracked brands`
+      note: `${aidedLatest.quarter}, ${qoqText(aidedQoq)}`
     },
     {
-      label: "Recovery since Q3",
-      value: `+${recovery.toFixed(0)}pp`,
-      note: "Unaided awareness rebounded, but remains structurally low"
+      label: "Aided drop",
+      value: `${aidedQoq}pp`,
+      note: "Sharp QoQ decline despite a small unaided gain"
     }
   ];
 
@@ -75,8 +81,8 @@ function renderSummaryCards() {
   document.getElementById("unaidedGap").textContent = `${gap.toFixed(0)}pp`;
 }
 
-function renderLegend() {
-  document.getElementById("brandLegend").innerHTML = data.brands
+function renderLegend(targetId = "brandLegend", brands = data.brands) {
+  document.getElementById(targetId).innerHTML = brands
     .map((brand) => `
       <span class="legend-item">
         <span class="dot" style="background:${brand.color}"></span>
@@ -176,19 +182,19 @@ function renderAwarenessChart() {
 
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   svg.innerHTML = `${grid}${xLabels}${missingMarkers}${brandLines}`;
-  attachChartTooltips();
+  attachChartTooltips("#awarenessChart .series-point", "chartTooltip", state.metric);
 }
 
-function attachChartTooltips() {
-  const tooltip = document.getElementById("chartTooltip");
-  document.querySelectorAll(".series-point").forEach((point) => {
+function attachChartTooltips(selector, tooltipId, metric) {
+  const tooltip = document.getElementById(tooltipId);
+  document.querySelectorAll(selector).forEach((point) => {
     point.addEventListener("mouseenter", (event) => {
       const target = event.currentTarget;
-      tooltip.innerHTML = `<strong>${target.dataset.brand} - ${target.dataset.quarter}</strong><br>${fmt(target.dataset.value, state.metric === "aided" ? 1 : 0)}<br><span>${target.dataset.source}</span>`;
+      tooltip.innerHTML = `<strong>${target.dataset.brand} - ${target.dataset.quarter}</strong><br>${fmt(target.dataset.value, metric === "aided" ? 1 : 0)}<br><span>${target.dataset.source}</span>`;
       tooltip.style.display = "block";
     });
     point.addEventListener("mousemove", (event) => {
-      const wrap = document.querySelector(".chart-wrap").getBoundingClientRect();
+      const wrap = event.currentTarget.closest(".chart-wrap").getBoundingClientRect();
       tooltip.style.left = `${event.clientX - wrap.left + 14}px`;
       tooltip.style.top = `${event.clientY - wrap.top - 12}px`;
     });
@@ -196,6 +202,117 @@ function attachChartTooltips() {
       tooltip.style.display = "none";
     });
   });
+}
+
+function renderBraSummary() {
+  const unaidedLatest = latestWithValue(data.braAwareness.unaided, "Truekind");
+  const aidedLatest = latestWithValue(data.braAwareness.aided, "Truekind");
+  const unaidedMentions = unaidedLatest.mentions?.Truekind;
+  const unaidedMentionQoq = unaidedLatest.qoqMentions?.Truekind;
+  const aidedQoq = aidedLatest.qoq?.Truekind;
+  const vsUnaided = unaidedLatest.values.VS;
+  const vsAided = aidedLatest.values.VS;
+
+  const cards = [
+    {
+      label: "Truekind unaided",
+      value: fmt(unaidedLatest.values.Truekind),
+      note: `${unaidedMentions} mentions, +${unaidedMentionQoq} mentions QoQ`,
+      color: byBraBrand.Truekind.color
+    },
+    {
+      label: "Truekind aided",
+      value: fmt(aidedLatest.values.Truekind),
+      note: `${aidedLatest.quarter}, ${qoqText(aidedQoq)}`,
+      color: byBraBrand.Truekind.color
+    },
+    {
+      label: "VS dominance",
+      value: `${fmt(vsUnaided)} / ${fmt(vsAided)}`,
+      note: "Unaided / aided awareness in Q2 2026",
+      color: byBraBrand.VS.color
+    },
+    {
+      label: "Bali unaided gain",
+      value: "+6pp",
+      note: "Largest unaided QoQ increase in the bra set",
+      color: byBraBrand.Bali.color
+    }
+  ];
+
+  document.getElementById("braSummaryCards").innerHTML = cards
+    .map((card) => `
+      <article class="summary-card">
+        <div class="label-row">
+          <h3>${card.label}</h3>
+          <span class="dot" style="background:${card.color}"></span>
+        </div>
+        <strong>${card.value}</strong>
+        <span>${card.note}</span>
+      </article>
+    `)
+    .join("");
+}
+
+function renderBraChart() {
+  const series = data.braAwareness[state.braMetric];
+  const svg = document.getElementById("braAwarenessChart");
+  const title = state.braMetric === "unaided" ? "Truekind unaided awareness" : "Truekind aided awareness";
+  document.getElementById("braAwarenessTitle").textContent = title;
+  document.getElementById("braAwarenessSourceNote").textContent = data.braAwarenessNotes[state.braMetric];
+
+  const width = svg.clientWidth || 1180;
+  const height = 430;
+  const margin = { top: 30, right: 28, bottom: 78, left: 52 };
+  const innerWidth = width - margin.left - margin.right;
+  const innerHeight = height - margin.top - margin.bottom;
+  const allValues = series.flatMap((row) => Object.values(row.values).filter((value) => value !== null));
+  const maxValue = Math.ceil(Math.max(...allValues, state.braMetric === "aided" ? 100 : 40) / 10) * 10;
+  const yTicks = state.braMetric === "aided" ? [0, 20, 40, 60, 80, 100] : [0, 10, 20, 30, 40];
+  const xFor = (index) => margin.left + (innerWidth * index) / Math.max(series.length - 1, 1);
+  const yFor = (value) => margin.top + innerHeight - (value / maxValue) * innerHeight;
+
+  const grid = yTicks
+    .filter((tick) => tick <= maxValue)
+    .map((tick) => {
+      const y = yFor(tick);
+      return `
+        <line class="grid-line" x1="${margin.left}" y1="${y}" x2="${width - margin.right}" y2="${y}"></line>
+        <text class="axis-label" x="${margin.left - 12}" y="${y + 4}" text-anchor="end">${tick}%</text>
+      `;
+    })
+    .join("");
+
+  const xLabels = series
+    .map((row, index) => `
+      <line class="x-tick" x1="${xFor(index)}" y1="${height - margin.bottom}" x2="${xFor(index)}" y2="${height - margin.bottom + 6}"></line>
+      <text class="axis-label axis-label-x" x="${xFor(index)}" y="${height - 30}" text-anchor="middle">${quarterLabel(row.quarter)}</text>
+    `)
+    .join("");
+
+  const brandLines = data.braBrands
+    .map((brand) => {
+      const rawPoints = series.map((row, index) => ({ row, index, value: row.values[brand.key] }));
+      const path = rawPoints
+        .filter((point) => point.value !== null && point.value !== undefined)
+        .map((point, index) => `${index === 0 ? "M" : "L"} ${xFor(point.index)} ${yFor(point.value)}`)
+        .join(" ");
+      const line = rawPoints.filter((point) => point.value !== null && point.value !== undefined).length > 1
+        ? `<path class="series-line" d="${path}" stroke="${brand.color}"></path>`
+        : "";
+      const circles = rawPoints
+        .filter((point) => point.value !== null && point.value !== undefined)
+        .map((point) => `
+          <circle class="series-point" cx="${xFor(point.index)}" cy="${yFor(point.value)}" r="${brand.key === "Truekind" ? 6 : 5}" fill="${brand.color}" data-brand="${brand.label}" data-quarter="${point.row.quarter}" data-value="${point.value}" data-source="${point.row.source}" data-confidence="${point.row.confidence}"></circle>
+        `)
+        .join("");
+      return `${line}${circles}`;
+    })
+    .join("");
+
+  svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  svg.innerHTML = `${grid}${xLabels}${brandLines}`;
+  attachChartTooltips("#braAwarenessChart .series-point", "braChartTooltip", state.braMetric);
 }
 
 function renderActions() {
@@ -340,6 +457,8 @@ function bindInteractions() {
       state.tab = button.dataset.tab;
       document.querySelectorAll(".tab").forEach((item) => item.classList.toggle("is-active", item === button));
       document.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.toggle("is-active", panel.id === state.tab));
+      if (state.tab === "awareness") renderAwarenessChart();
+      if (state.tab === "bras") renderBraChart();
     });
   });
 
@@ -348,6 +467,14 @@ function bindInteractions() {
       state.metric = button.dataset.metric;
       document.querySelectorAll("[data-metric]").forEach((item) => item.classList.toggle("is-active", item === button));
       renderAwarenessChart();
+    });
+  });
+
+  document.querySelectorAll("[data-bra-metric]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.braMetric = button.dataset.braMetric;
+      document.querySelectorAll("[data-bra-metric]").forEach((item) => item.classList.toggle("is-active", item === button));
+      renderBraChart();
     });
   });
 
@@ -367,13 +494,19 @@ function bindInteractions() {
     });
   });
 
-  window.addEventListener("resize", renderAwarenessChart);
+  window.addEventListener("resize", () => {
+    renderAwarenessChart();
+    renderBraChart();
+  });
 }
 
 function init() {
   renderSummaryCards();
   renderLegend();
   renderAwarenessChart();
+  renderBraSummary();
+  renderLegend("braLegend", data.braBrands);
+  renderBraChart();
   renderActions();
   renderEquity();
   renderSignals();
