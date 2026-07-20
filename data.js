@@ -588,22 +588,10 @@ window.BRAND_TRACKER_DATA = {
   ],
   actions: [
     {
-      title: "Turn comfort into a sharper memory structure",
-      urgency: "High",
-      proof: "Shapermint is flat at 13.8% on look/feel good but comfortable, while Spanx is 29.2% and Skims is 21.7% in Q1 2026.",
-      move: "Build one repeated claim around everyday comfort plus medium compression, then force consistency across paid, retail, PDP, and CRM."
-    },
-    {
-      title: "Stop treating awareness as only reach",
-      urgency: "High",
-      proof: "Q2 2026 unaided awareness rose to 11%, but the nearest dominant competitor is still Spanx at 38%.",
-      move: "Measure spend against memory lift, not just impressions. Use recurring brand cues and a single ownable phrase every quarter."
-    },
-    {
-      title: "Treat filtered aided awareness as the main read",
-      urgency: "High",
-      proof: "On the corrected filtered June 2026 base, Shapermint aided awareness is 53.3%, up 0.2pp QoQ, versus 40.3% on the all-respondent June export.",
-      move: "Keep the filtered base as the headline tracker view, while making the gap to Spanx and Skims the bigger brand problem."
+      title: "Make body adaptation the Q3 campaign spine",
+      urgency: "Campaign",
+      proof: "Q2 respondents want brands that adapt to their body instead of asking them to adapt, 55.6%, understand their life stage, 53.6%, and make comfort feel powerful, 47.5%. No brand clearly owns moving beyond old shapewear rules.",
+      move: "Build one repeated idea around shapewear that adapts as bodies and lives change, then use the same claim, visual cue, and proof across paid social, Amazon, PDP, CRM, and retail."
     },
     {
       title: "Use retail and Amazon as credibility bridges",
