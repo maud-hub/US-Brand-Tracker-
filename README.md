@@ -9,9 +9,9 @@ Static internal dashboard for the US Brand Tracker. Open `index.html` in a brows
 - `C:\Users\maudi\Downloads\24. Q1 2026 Brand Tracker Analysis - APR2026.pptx`
 - Dedicated Truekind awareness charts on the Q2 2025 and Q3 2025 PPTX Truekind slides
 - Raw tracker exports found in Downloads: `Q1 2025.xls`, `Q2 2025.xls`, `Q3 2025.xls`, `Q4 2025.xls`, `Q1 2026.xls`
-- User-supplied Q2 2026 Shapermint and Truekind aided/unaided results from 2026-07-20
+- User-supplied Q2 2026 unaided results and filtered aided results excluding never-purchased and 2+ year lapsed participants from 2026-07-20
 - User-supplied Q4 2025 Shapermint awareness table image from 2026-07-20
-- `C:\Users\maudi\Downloads\export-10197.xls` for Q2 2026 channels and bra aided validation
+- `C:\Users\maudi\Downloads\export-10197.xls` for Q2 2026 channels and full-sample validation checks
 - `C:\Users\maudi\Downloads\export-10198.xls` for Q4 2025 validation
 
 ## Data Policy

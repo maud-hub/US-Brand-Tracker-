@@ -61,9 +61,9 @@ function renderSummaryCards() {
       note: `${aidedLatest.quarter}, ${qoqText(aidedQoq)}`
     },
     {
-      label: "Aided drop",
+      label: "Filtered aided shift",
       value: `${aidedQoq}pp`,
-      note: "Sharp QoQ decline despite a small unaided gain"
+      note: "Excludes never-purchased and 2+ year lapsed respondents"
     }
   ];
 
