@@ -129,10 +129,12 @@ window.BRAND_TRACKER_DATA = {
       },
       {
         quarter: "Q4 2025",
-        source: "Q1 2026 PPTX slide 3 chart screenshot only",
-        confidence: "missing-exact",
-        note: "Exact Q4 2025 unaided values are not exposed as text/table data in the supplied decks. They are not charted as confirmed.",
-        values: { Shapermint: null, Spanx: null, Skims: null, Maidenform: null, Honeylove: null }
+        source: "User-supplied Q4 2025 Brand Tracker table image, 2026-07-20",
+        confidence: "user-supplied",
+        counts: { Shapermint: 93, Spanx: 378, Skims: 455, Maidenform: 123, Honeylove: 84 },
+        base: 1133,
+        qoq: { Shapermint: 1, Spanx: -2, Skims: -1, Maidenform: 1, Honeylove: -1 },
+        values: { Shapermint: 8, Spanx: 33, Skims: 40, Maidenform: 11, Honeylove: 7 }
       },
       {
         quarter: "Q1 2026",
@@ -217,9 +219,10 @@ window.BRAND_TRACKER_DATA = {
       },
       {
         quarter: "Q4 2025",
-        source: "Q4 2025 raw XLS, relationship table",
-        confidence: "raw-export",
-        values: { Shapermint: 48.6, Spanx: 90.6, Skims: 76.8, Maidenform: 70.9, Honeylove: 54.5 }
+        source: "User-supplied Q4 2025 Brand Tracker table image, 2026-07-20",
+        confidence: "user-supplied",
+        qoq: { Shapermint: -4, Spanx: 1, Skims: -3, Maidenform: -1, Honeylove: -3 },
+        values: { Shapermint: 48.8, Spanx: 90.6, Skims: 76.9, Maidenform: 71.0, Honeylove: 54.5 }
       },
       {
         quarter: "Q1 2026",
@@ -237,15 +240,23 @@ window.BRAND_TRACKER_DATA = {
     ]
   },
   awarenessNotes: {
-    unaided: "Unaided awareness spans the labeled historic tracker series from Q1 2021 to Q2 2026. Honeylove was not present in the earliest 2021/2022 chart points. Q4 2025 remains blank because the supplied Q1 2026 deck only shows an unlabeled plotted point.",
-    aided: "Aided awareness spans the labeled historic tracker series from Q1 2023 to Q2 2026. Q2 2026 values and QoQ deltas are user-supplied latest results."
+    unaided: "Unaided awareness spans the labeled historic tracker series from Q1 2021 to Q2 2026. Honeylove was not present in the earliest 2021/2022 chart points. Q4 2025 and Q2 2026 values are user-supplied latest additions.",
+    aided: "Aided awareness spans the labeled historic tracker series from Q1 2023 to Q2 2026. Q4 2025 and Q2 2026 values and QoQ deltas are user-supplied latest additions."
   },
   braAwareness: {
     unaided: [
       {
+        quarter: "Q4 2025",
+        source: "Q4 2025 raw XLS question 30 open-text bra recall",
+        confidence: "raw-open-text-truekind-only",
+        note: "Official normalized competitor unaided percentages are not exposed in this export; Truekind mentions are counted directly from the raw recall rows.",
+        mentions: { Truekind: 3 },
+        values: { Truekind: 0, VS: null, Playtex: null, Bali: null, Hanes: null, Warners: null, Thirdlove: null }
+      },
+      {
         quarter: "Q1 2026",
-        source: "Derived from user-supplied Q2 2026 values and stated QoQ deltas",
-        confidence: "derived-from-qoq",
+        source: "Q1 2026 raw XLS question 30 open-text recall plus user-supplied Q2 2026 QoQ deltas for competitors",
+        confidence: "raw-open-text-plus-derived-qoq",
         mentions: { Truekind: 1 },
         values: { Truekind: 0, VS: 39, Playtex: 23, Bali: 11, Hanes: 14, Warners: 5, Thirdlove: 2 }
       },
@@ -261,23 +272,29 @@ window.BRAND_TRACKER_DATA = {
     ],
     aided: [
       {
+        quarter: "Q4 2025",
+        source: "Q4 2025 raw XLS question 33 bra relationship table",
+        confidence: "raw-export",
+        values: { Truekind: 36.3, VS: 98.8, Playtex: 86.9, Bali: 72.4, Hanes: 97.4, Warners: 58.4, Thirdlove: 39.3 }
+      },
+      {
         quarter: "Q1 2026",
-        source: "Derived from user-supplied Q2 2026 values and stated QoQ deltas",
-        confidence: "derived-from-qoq",
-        values: { Truekind: 31, VS: 99, Playtex: 90, Bali: 79, Hanes: 97, Warners: 62, Thirdlove: 40 }
+        source: "Q1 2026 raw XLS question 33 bra relationship table",
+        confidence: "raw-export",
+        values: { Truekind: 30.8, VS: 99.2, Playtex: 90.4, Bali: 78.7, Hanes: 97.4, Warners: 62.2, Thirdlove: 40.2 }
       },
       {
         quarter: "Q2 2026",
-        source: "User-supplied Q2 2026 Truekind Brand Tracker results, 2026-07-20",
-        confidence: "user-supplied",
+        source: "Q2 2026 raw XLS question 33 bra relationship table, confirmed against user-supplied latest results",
+        confidence: "raw-export",
         qoq: { Truekind: -6, VS: -2, Playtex: -2, Bali: -5, Hanes: -1, Warners: -7, Thirdlove: -9 },
-        values: { Truekind: 25, VS: 97, Playtex: 88, Bali: 74, Hanes: 96, Warners: 55, Thirdlove: 31 }
+        values: { Truekind: 25.2, VS: 97.0, Playtex: 88.4, Bali: 74.0, Hanes: 96.0, Warners: 55.0, Thirdlove: 31.5 }
       }
     ]
   },
   braAwarenessNotes: {
-    unaided: "Truekind unaided awareness is 0% in Q2 2026, with 3 mentions, up 2 mentions QoQ. Q1 2026 competitor values are derived directly from the supplied Q2 values and stated QoQ changes.",
-    aided: "Truekind aided awareness is 25% in Q2 2026, down 6pp QoQ. Q1 2026 values are derived directly from the supplied Q2 values and stated QoQ changes."
+    unaided: "Truekind unaided awareness is 0% in Q2 2026, with 3 mentions, up 2 mentions QoQ. Q4 2025 adds exact Truekind raw recall mentions; normalized competitor unaided history is only available from the supplied Q1/Q2 2026 update.",
+    aided: "Truekind aided awareness is 25% in Q2 2026, down 6pp QoQ. Bra aided history is available from Q4 2025 through Q2 2026 relationship tables."
   },
   equity: {
     legacyQ2: {
@@ -371,31 +388,31 @@ window.BRAND_TRACKER_DATA = {
   },
   channels: {
     initialAwareness: {
-      source: "Q1 2026 PPTX slide 5 embedded chart/table",
-      quarters: ["Q1 2025", "Q2 2025", "Q3 2025", "Q4 2025", "Q1 2026"],
+      source: "Q1 2026 PPTX slide 5 embedded chart/table; Q2 2026 raw XLS question 22. Q2 TV Shows combines named TV-program responses; Q2 in-store department stores combines Nordstrom, Macy's, and Belk only.",
+      quarters: ["Q1 2025", "Q2 2025", "Q3 2025", "Q4 2025", "Q1 2026", "Q2 2026"],
       rows: [
-        { channel: "Facebook Ad", values: [19.2, 22.3, 13.8, 17.5, 17.2] },
-        { channel: "Online Search", values: [22.3, 20.2, 15.5, 19.1, 16.5] },
-        { channel: "TikTok Ad", values: [16.6, 16.6, 15.0, 14.7, 12.7] },
-        { channel: "Instagram Ad", values: [11.9, 14.9, 13.1, 11.4, 14.5] },
-        { channel: "TV Commercial", values: [13.3, 16.1, 10.5, 13.4, null] },
-        { channel: "TV Shows", values: [16.0, 12.7, 11.7, 12.2, 11.0] },
-        { channel: "In-Store Dept. stores", values: [13.6, 14.1, 14.2, 13.0, 9.9] },
-        { channel: "Pinterest Ad", values: [6.4, 7.9, 5.5, 4.7, 5.2] }
+        { channel: "Facebook Ad", values: [19.2, 22.3, 13.8, 17.5, 17.2, 19.3] },
+        { channel: "Online Search", values: [22.3, 20.2, 15.5, 19.1, 16.5, 17.9] },
+        { channel: "TikTok Ad", values: [16.6, 16.6, 15.0, 14.7, 12.7, 8.7] },
+        { channel: "Instagram Ad", values: [11.9, 14.9, 13.1, 11.4, 14.5, 10.4] },
+        { channel: "TV Commercial", values: [13.3, 16.1, 10.5, 13.4, null, 13.4] },
+        { channel: "TV Shows", values: [16.0, 12.7, 11.7, 12.2, 11.0, 20.1] },
+        { channel: "In-Store Dept. stores", values: [13.6, 14.1, 14.2, 13.0, 9.9, 12.9] },
+        { channel: "Pinterest Ad", values: [6.4, 7.9, 5.5, 4.7, 5.2, 3.4] }
       ]
     },
     lastSeen: {
-      source: "Q1 2026 PPTX slide 7 embedded chart/table",
-      quarters: ["Q1 2025", "Q2 2025", "Q3 2025", "Q4 2025", "Q1 2026"],
+      source: "Q1 2026 PPTX slide 7 embedded chart/table; Q2 2026 raw XLS question 23",
+      quarters: ["Q1 2025", "Q2 2025", "Q3 2025", "Q4 2025", "Q1 2026", "Q2 2026"],
       rows: [
-        { channel: "Amazon", values: [14.1, 13.4, 12.6, 13.7, 11.8] },
-        { channel: "Online Search", values: [11.8, 11.6, 8.7, 12.0, 9.9] },
-        { channel: "Facebook Ad", values: [9.2, 12.3, 7.4, 9.7, 11.8] },
-        { channel: "TikTok Ad", values: [8.8, 7.9, 8.5, 8.1, 5.2] },
-        { channel: "Instagram Ad", values: [6.6, 8.1, 6.3, 6.3, 7.2] },
-        { channel: "TV Commercial", values: [6.4, 7.3, 5.5, 5.6, 5.2] },
-        { channel: "Facebook Page", values: [2.4, 2.0, 2.1, 1.8, 4.3] },
-        { channel: "Friend/WOM", values: [5.1, 5.9, 5.0, 4.9, 4.7] }
+        { channel: "Amazon", values: [14.1, 13.4, 12.6, 13.7, 11.8, 13.1] },
+        { channel: "Online Search", values: [11.8, 11.6, 8.7, 12.0, 9.9, 8.8] },
+        { channel: "Facebook Ad", values: [9.2, 12.3, 7.4, 9.7, 11.8, 14.3] },
+        { channel: "TikTok Ad", values: [8.8, 7.9, 8.5, 8.1, 5.2, 5.0] },
+        { channel: "Instagram Ad", values: [6.6, 8.1, 6.3, 6.3, 7.2, 6.5] },
+        { channel: "TV Commercial", values: [6.4, 7.3, 5.5, 5.6, 5.2, 7.8] },
+        { channel: "Facebook Page", values: [2.4, 2.0, 2.1, 1.8, 4.3, 2.1] },
+        { channel: "Friend/WOM", values: [5.1, 5.9, 5.0, 4.9, 4.7, 5.6] }
       ]
     }
   },
@@ -472,7 +489,9 @@ window.BRAND_TRACKER_DATA = {
     "Historic aided awareness is sourced from the Q2 2025 PPTX labeled chart for Q1 2023 through Q4 2024, then raw XLS or overlay tables for 2025/Q1 2026 and the user-supplied Q2 2026 update.",
     "Q2 2025 deck supplied exact labels for unaided awareness and exact raw XLS tables for aided awareness, equity, source, and intent.",
     "Q3 2025 unaided, aided, and equity values use the overlay/pasted tables in the Q3 PPTX, because some values differ from the raw export tables.",
-    "Q4 2025 unaided awareness is not exposed as a table or label in the supplied files. It is intentionally left blank rather than inferred from an unlabeled chart point.",
+    "Q4 2025 Shapermint unaided and aided awareness uses the user-supplied table image from 2026-07-20.",
+    "Truekind Q4 2025 aided history comes from the raw Q33 relationship table. Q4 2025 Truekind unaided uses only exact raw open-text mentions because normalized competitor percentages are not exposed in the export.",
+    "Q2 2026 channel data is appended from the June 2026 raw XLS export. Composite rows are noted where the export split a historical channel into named options.",
     "Q4 2025 and Q1 2026 associations/attributes use the raw XLS tables that match the Q1 2026 presentation.",
     "Q1 2026 unaided awareness uses the dashboard cards visible in the Q1 2026 PPTX screenshot."
   ]

@@ -9,10 +9,13 @@ Static internal dashboard for the US Brand Tracker. Open `index.html` in a brows
 - `C:\Users\maudi\Downloads\24. Q1 2026 Brand Tracker Analysis - APR2026.pptx`
 - Raw tracker exports found in Downloads: `Q1 2025.xls`, `Q2 2025.xls`, `Q3 2025.xls`, `Q4 2025.xls`, `Q1 2026.xls`
 - User-supplied Q2 2026 Shapermint and Truekind aided/unaided results from 2026-07-20
+- User-supplied Q4 2025 Shapermint awareness table image from 2026-07-20
+- `C:\Users\maudi\Downloads\export-10197.xls` for Q2 2026 channels and bra aided validation
+- `C:\Users\maudi\Downloads\export-10198.xls` for Q4 2025 validation
 
 ## Data Policy
 
-Values are only charted when they are exposed in deck text, embedded chart tables, pasted overlay tables, raw XLS summary tables, or directly supplied latest results. When a supplied deck table differs from the raw XLS, the deck table is used and noted in `data.js`. Q4 2025 unaided awareness is intentionally left blank because the supplied files only show it as an unlabeled chart point.
+Values are only charted when they are exposed in deck text, embedded chart tables, pasted overlay tables, raw XLS summary tables, or directly supplied latest results. When a supplied deck table differs from the raw XLS, the deck table is used and noted in `data.js`. Ambiguous values stay `null`; for example, Q4 2025 Truekind unaided includes exact raw Truekind mentions only because normalized competitor percentages are not exposed in the export.
 
 ## Update Workflow
 

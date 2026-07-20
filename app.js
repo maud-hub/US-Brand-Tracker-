@@ -23,6 +23,8 @@ const qoqText = (value) => {
   return `${value > 0 ? "+" : ""}${value}pp QoQ`;
 };
 
+const tabIds = ["awareness", "bras", "equity", "channels", "notes"];
+
 function latestWithValue(series, brand) {
   return [...series].reverse().find((row) => row.values[brand] !== null && row.values[brand] !== undefined);
 }
@@ -413,11 +415,12 @@ function renderChannels() {
   const channelData = data.channels[state.channel];
   const max = Math.max(...channelData.rows.flatMap((row) => row.values.filter((value) => value !== null)));
   const quarterLabels = channelData.quarters.map(quarterLabel);
+  const quarterGrid = `grid-template-columns: repeat(${quarterLabels.length}, minmax(0, 1fr))`;
   document.getElementById("channelSourceNote").textContent = `${channelData.source}. Bars run left to right: ${quarterLabels.join(", ")}.`;
   document.getElementById("channelList").innerHTML = `
     <div class="channel-axis" aria-hidden="true">
       <span>Channel</span>
-      <div class="channel-quarter-labels">
+      <div class="channel-quarter-labels" style="${quarterGrid}">
         ${quarterLabels.map((quarter) => `<span>${quarter}</span>`).join("")}
       </div>
       <span>Latest</span>
@@ -428,7 +431,7 @@ function renderChannels() {
       return `
         <div class="channel-row">
           <div class="channel-name">${row.channel}</div>
-          <div class="spark" aria-label="${row.channel} trend">
+          <div class="spark" aria-label="${row.channel} trend" style="${quarterGrid}">
             ${row.values.map((value, index) => `
               <span class="spark-slot">
                 <span class="spark-value">${value === null ? "n/a" : fmt(value, 1)}</span>
@@ -454,11 +457,7 @@ function renderNotes() {
 function bindInteractions() {
   document.querySelectorAll(".tab").forEach((button) => {
     button.addEventListener("click", () => {
-      state.tab = button.dataset.tab;
-      document.querySelectorAll(".tab").forEach((item) => item.classList.toggle("is-active", item === button));
-      document.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.toggle("is-active", panel.id === state.tab));
-      if (state.tab === "awareness") renderAwarenessChart();
-      if (state.tab === "bras") renderBraChart();
+      activateTab(button.dataset.tab, true);
     });
   });
 
@@ -500,6 +499,19 @@ function bindInteractions() {
   });
 }
 
+function activateTab(tab, updateHash = false) {
+  if (!tabIds.includes(tab)) return;
+  state.tab = tab;
+  document.querySelectorAll(".tab").forEach((item) => item.classList.toggle("is-active", item.dataset.tab === state.tab));
+  document.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.toggle("is-active", panel.id === state.tab));
+  if (state.tab === "awareness") renderAwarenessChart();
+  if (state.tab === "bras") renderBraChart();
+  if (state.tab === "channels") renderChannels();
+  if (updateHash) {
+    history.replaceState(null, "", `#${state.tab}`);
+  }
+}
+
 function init() {
   renderSummaryCards();
   renderLegend();
@@ -513,6 +525,7 @@ function init() {
   renderChannels();
   renderNotes();
   bindInteractions();
+  activateTab(window.location.hash.replace("#", "") || state.tab);
 }
 
 init();
