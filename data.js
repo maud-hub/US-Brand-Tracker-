@@ -246,6 +246,76 @@ window.BRAND_TRACKER_DATA = {
   braAwareness: {
     unaided: [
       {
+        quarter: "Q1 2023",
+        source: "Q2 2025 PPTX slide 37 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 0, VS: 50, Playtex: 18, Bali: null, Hanes: 14, Warners: null, Thirdlove: 2 }
+      },
+      {
+        quarter: "Q2 2023",
+        source: "Q2 2025 PPTX slide 37 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 0, VS: 54, Playtex: 14, Bali: null, Hanes: 14, Warners: null, Thirdlove: 2 }
+      },
+      {
+        quarter: "Q3 2023",
+        source: "Q2 2025 PPTX slide 37 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 0, VS: 52, Playtex: 14, Bali: null, Hanes: 13, Warners: null, Thirdlove: 2 }
+      },
+      {
+        quarter: "Q4 2023",
+        source: "Q2 2025 PPTX slide 37 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 0, VS: 50, Playtex: 15, Bali: null, Hanes: 14, Warners: null, Thirdlove: 2 }
+      },
+      {
+        quarter: "Q1 2024",
+        source: "Q2 2025 PPTX slide 37 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 1, VS: 46, Playtex: 15, Bali: null, Hanes: 13, Warners: null, Thirdlove: 2 }
+      },
+      {
+        quarter: "Q2 2024",
+        source: "Q2 2025 PPTX slide 37 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 1, VS: 42, Playtex: 19, Bali: 14, Hanes: 13, Warners: 4, Thirdlove: null }
+      },
+      {
+        quarter: "Q3 2024",
+        source: "Q2 2025 PPTX slide 37 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 1, VS: 49, Playtex: 15, Bali: 12, Hanes: 15, Warners: 2, Thirdlove: 2 }
+      },
+      {
+        quarter: "Q4 2024",
+        source: "Q2 2025 PPTX slide 37 image chart and slide text",
+        confidence: "deck-image-chart",
+        mentions: { Truekind: 5 },
+        values: { Truekind: 1, VS: 44, Playtex: 16, Bali: 11, Hanes: 13, Warners: 2, Thirdlove: null }
+      },
+      {
+        quarter: "Q1 2025",
+        source: "Q2 2025 PPTX slide 37 image chart and slide text",
+        confidence: "deck-image-chart",
+        mentions: { Truekind: 5 },
+        values: { Truekind: 1, VS: 39, Playtex: 17, Bali: 12, Hanes: 13, Warners: 2, Thirdlove: null }
+      },
+      {
+        quarter: "Q2 2025",
+        source: "Q2 2025 PPTX slide 37 image chart and slide text",
+        confidence: "deck-image-chart",
+        mentions: { Truekind: 6 },
+        values: { Truekind: 1, VS: 47, Playtex: 19, Bali: 13, Hanes: 14, Warners: 3, Thirdlove: 5 }
+      },
+      {
+        quarter: "Q3 2025",
+        source: "Q3 2025 PPTX slide 33 pasted table",
+        confidence: "deck-verified",
+        mentions: { Truekind: 4 },
+        values: { Truekind: 0, VS: 54, Playtex: 14, Bali: 12, Hanes: 15, Warners: 2, Thirdlove: 4 }
+      },
+      {
         quarter: "Q4 2025",
         source: "Q4 2025 raw XLS question 30 open-text bra recall",
         confidence: "raw-open-text-truekind-only",
@@ -272,6 +342,72 @@ window.BRAND_TRACKER_DATA = {
     ],
     aided: [
       {
+        quarter: "Q1 2023",
+        source: "Q2 2025 PPTX slide 38 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 41, VS: 99, Playtex: 88, Bali: null, Hanes: 94, Warners: null, Thirdlove: 47 }
+      },
+      {
+        quarter: "Q2 2023",
+        source: "Q2 2025 PPTX slide 38 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 37, VS: 99, Playtex: 84, Bali: null, Hanes: 95, Warners: null, Thirdlove: 42 }
+      },
+      {
+        quarter: "Q3 2023",
+        source: "Q2 2025 PPTX slide 38 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 37, VS: 99, Playtex: 88, Bali: null, Hanes: 95, Warners: null, Thirdlove: 44 }
+      },
+      {
+        quarter: "Q4 2023",
+        source: "Q2 2025 PPTX slide 38 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 36, VS: 98, Playtex: 85, Bali: null, Hanes: 95, Warners: null, Thirdlove: 39 }
+      },
+      {
+        quarter: "Q1 2024",
+        source: "Q2 2025 PPTX slide 38 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 36, VS: 99, Playtex: 87, Bali: null, Hanes: 96, Warners: null, Thirdlove: 40 }
+      },
+      {
+        quarter: "Q2 2024",
+        source: "Q2 2025 PPTX slide 38 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 36, VS: 99, Playtex: 91, Bali: 80, Hanes: null, Warners: 60, Thirdlove: 44 }
+      },
+      {
+        quarter: "Q3 2024",
+        source: "Q2 2025 PPTX slide 38 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 40, VS: 99, Playtex: 92, Bali: 79, Hanes: null, Warners: 62, Thirdlove: 42 }
+      },
+      {
+        quarter: "Q4 2024",
+        source: "Q2 2025 PPTX slide 38 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 41, VS: 98, Playtex: 89, Bali: 73, Hanes: 97, Warners: 59, Thirdlove: 42 }
+      },
+      {
+        quarter: "Q1 2025",
+        source: "Q2 2025 PPTX slide 38 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 35, VS: 99, Playtex: 89, Bali: 74, Hanes: 97, Warners: 60, Thirdlove: 41 }
+      },
+      {
+        quarter: "Q2 2025",
+        source: "Q2 2025 PPTX slide 38 image chart",
+        confidence: "deck-image-chart",
+        values: { Truekind: 40, VS: 99, Playtex: 90, Bali: 78, Hanes: null, Warners: 63, Thirdlove: 45 }
+      },
+      {
+        quarter: "Q3 2025",
+        source: "Q3 2025 PPTX slide 34 pasted table",
+        confidence: "deck-verified",
+        values: { Truekind: 46.2, VS: 97.0, Playtex: 85.3, Bali: 74.4, Hanes: 94.6, Warners: 65.0, Thirdlove: 50.2 }
+      },
+      {
         quarter: "Q4 2025",
         source: "Q4 2025 raw XLS question 33 bra relationship table",
         confidence: "raw-export",
@@ -293,8 +429,8 @@ window.BRAND_TRACKER_DATA = {
     ]
   },
   braAwarenessNotes: {
-    unaided: "Truekind unaided awareness is 0% in Q2 2026, with 3 mentions, up 2 mentions QoQ. Q4 2025 adds exact Truekind raw recall mentions; normalized competitor unaided history is only available from the supplied Q1/Q2 2026 update.",
-    aided: "Truekind aided awareness is 25% in Q2 2026, down 6pp QoQ. Bra aided history is available from Q4 2025 through Q2 2026 relationship tables."
+    unaided: "Truekind unaided awareness is charted back to Q1 2023 from deck image charts and pasted tables. It remains 0% in Q2 2026, with 3 mentions, up 2 mentions QoQ. Nulls mark competitor labels that were not exposed clearly in the chart image.",
+    aided: "Truekind aided awareness is charted back to Q1 2023 from deck image charts, pasted tables, and raw Q33 relationship tables. It fell to 25% in Q2 2026, down 6pp QoQ."
   },
   equity: {
     legacyQ2: {
@@ -484,13 +620,13 @@ window.BRAND_TRACKER_DATA = {
   ],
   dataNotes: [
     "Q2 2026 Shapermint and Truekind aided/unaided values are user-supplied latest results from 2026-07-20; these are marked as user-supplied in the data model.",
-    "Truekind Q1 2026 comparison values are derived only from the provided Q2 2026 values and stated QoQ deltas. Truekind unaided movement is tracked as mentions because Q2 is still 0%.",
+    "Truekind aided and unaided history now uses the dedicated Truekind slides in the Q2/Q3 2025 decks, plus later raw XLS/user-supplied results. Truekind unaided movement is also tracked as mentions because the percentage rounds to 0% in recent waves.",
     "Historic unaided awareness is sourced from the Q3 2024 PPTX labeled chart for Q1 2021 through Q3 2024, then Q4 2024, Q1/Q2 2025, Q3 2025, Q1 2026 deck labels/cards, and the user-supplied Q2 2026 update.",
     "Historic aided awareness is sourced from the Q2 2025 PPTX labeled chart for Q1 2023 through Q4 2024, then raw XLS or overlay tables for 2025/Q1 2026 and the user-supplied Q2 2026 update.",
     "Q2 2025 deck supplied exact labels for unaided awareness and exact raw XLS tables for aided awareness, equity, source, and intent.",
     "Q3 2025 unaided, aided, and equity values use the overlay/pasted tables in the Q3 PPTX, because some values differ from the raw export tables.",
     "Q4 2025 Shapermint unaided and aided awareness uses the user-supplied table image from 2026-07-20.",
-    "Truekind Q4 2025 aided history comes from the raw Q33 relationship table. Q4 2025 Truekind unaided uses only exact raw open-text mentions because normalized competitor percentages are not exposed in the export.",
+    "Truekind historical awareness is sourced from the Q2 2025 and Q3 2025 PPTX Truekind slides, then Q4 2025/Q1 2026/Q2 2026 raw XLS relationship tables and user-supplied latest results. Some early competitor labels remain null where the image chart did not expose a clear value.",
     "Q2 2026 channel data is appended from the June 2026 raw XLS export. Composite rows are noted where the export split a historical channel into named options.",
     "Q4 2025 and Q1 2026 associations/attributes use the raw XLS tables that match the Q1 2026 presentation.",
     "Q1 2026 unaided awareness uses the dashboard cards visible in the Q1 2026 PPTX screenshot."
