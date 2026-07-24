@@ -2,6 +2,12 @@
 
 Static internal dashboard for the US Brand Tracker. Open `index.html` in a browser, or serve the folder with any local static server.
 
+## Access Gate
+
+The published dashboard uses a client-side shared-password gate. The password is verified with a PBKDF2-derived value and is not stored in the repository. Successful access lasts for the current browser tab only.
+
+GitHub Pages publishes static files publicly, so this gate prevents casual access but is not a substitute for server-side authentication. Anyone with repository or direct asset access can still retrieve the source data. Use authenticated hosting if the dashboard contains confidential information.
+
 ## Source Files Used
 
 - `C:\Users\maudi\Downloads\21. Q2 2025 Brand Tracker - Jun2025 (1).pptx`

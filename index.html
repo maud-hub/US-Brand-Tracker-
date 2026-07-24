@@ -7,7 +7,40 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="app-shell">
+    <main class="auth-screen" id="authScreen">
+      <section class="auth-panel" aria-labelledby="authTitle">
+        <div class="auth-identity">
+          <span class="auth-mark" aria-hidden="true">BT</span>
+          <div>
+            <p class="eyebrow">US Brand Tracker</p>
+            <p class="auth-context">Restricted workspace</p>
+          </div>
+        </div>
+        <div class="auth-copy">
+          <h1 id="authTitle">Enter the access password</h1>
+          <p>This shared dashboard is password gated. Access is remembered only in this browser tab.</p>
+        </div>
+        <form class="auth-form" id="authForm" novalidate>
+          <label for="password">Password</label>
+          <div class="password-field">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              aria-describedby="authMessage"
+              required
+            >
+            <button class="password-toggle" id="passwordToggle" type="button" aria-label="Show password">Show</button>
+          </div>
+          <p class="auth-message" id="authMessage" role="status" aria-live="polite"></p>
+          <button class="auth-submit" id="authSubmit" type="submit">Open dashboard</button>
+        </form>
+        <p class="auth-help">Need access? Contact the dashboard owner.</p>
+      </section>
+    </main>
+
+    <div class="app-shell" id="appShell" hidden>
       <header class="topbar">
         <div>
           <p class="eyebrow">US Brand Tracker</p>
@@ -19,6 +52,7 @@
           <span class="badge badge-verified">Q2 2026 updated</span>
           <span class="badge">History from Q1 2021</span>
           <span class="badge">Q4 2025 exact table added</span>
+          <button class="sign-out" id="signOut" type="button">Sign out</button>
         </div>
       </header>
 
@@ -186,7 +220,6 @@
       </main>
     </div>
 
-    <script src="data.js"></script>
-    <script src="app.js"></script>
+    <script src="auth.js"></script>
   </body>
 </html>
